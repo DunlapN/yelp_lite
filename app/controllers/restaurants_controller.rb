@@ -6,6 +6,8 @@ class RestaurantsController < ApplicationController
   end
 
   def show
+    @tag = Tag.new
+    @review = Review.new
     @restaurant = Restaurant.find(params[:id])
 
     render("restaurants/show.html.erb")

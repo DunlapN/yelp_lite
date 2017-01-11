@@ -16,6 +16,7 @@ class ReviewsController < ApplicationController
   end
 
   def show
+    @review_photo = ReviewPhoto.new
     @review = Review.find(params[:id])
 
     render("reviews/show.html.erb")
