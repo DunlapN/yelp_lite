@@ -16,7 +16,7 @@
 
       <% @tags.each do |tag| %>
       <tr>
-        <td><%= tag.restaurant_id %></td>
+        <td><%= tag.restaurant.name %></td>
         <td><%= tag.tag %></td>
         <td>
           <a href="/tags/<%= tag.id %>" class="btn btn-primary">Show</a>
