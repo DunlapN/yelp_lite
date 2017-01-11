@@ -32,3 +32,34 @@
     </div>
   </div>
 </div>
+
+<!-- A Review has many review_photos -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Review Photos
+      </li>
+
+      <% @review.review_photos.each do |review_photo| %>
+        <li class="list-group-item">
+          <a href="/review_photos/<%= review_photo.id %>">
+            <%= review_photo.review_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/review_photos/<%= review_photo.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/review_photos/<%= review_photo.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_review_photo/<%= review_photo.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
