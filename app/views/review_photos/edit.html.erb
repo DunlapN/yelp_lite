@@ -1,0 +1,37 @@
+<!-- Validation failure messages -->
+<% if @review_photo.errors.any? %>
+  <% @review_photo.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Review Photo #<%= @review_photo.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_review_photo/<%= @review_photo.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for review_id -->
+      <div class="form-group">
+        <label for="review_id" class="control-label">
+          Review
+        </label>
+
+        <input type="text" id="review_id" name="review_id" placeholder="Review" class="form-control" value="<%= @review_photo.review_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Review Photo
+      </button>
+      or
+      <a href="/review_photos/<%= @review_photo.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

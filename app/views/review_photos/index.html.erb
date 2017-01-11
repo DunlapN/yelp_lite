@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h1>
+    Review photos
+    <a href="/review_photos/new" class="btn btn-lg btn-success">New Review photo</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Review</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @review_photos.each do |review_photo| %>
+      <tr>
+        <td><%= review_photo.review_id %></td>
+        <td>
+          <a href="/review_photos/<%= review_photo.id %>" class="btn btn-primary">Show</a>
+          <a href="/review_photos/<%= review_photo.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_review_photo/<%= review_photo.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
